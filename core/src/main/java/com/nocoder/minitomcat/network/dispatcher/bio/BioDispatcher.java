@@ -17,7 +17,6 @@ import java.net.Socket;
 /**
  * 请求分发线程，往往对应一个线程池，负责读取Request以及将RequestHandler放入线程池中执行
  *
- *
  * 负责先读取请求，然后构造RequestHandler然后放到线程池中执行。
  * 这里遇到了一个坑，本来是打算把读取也放到RequestHandler中并发执行的，但是在测试的时候发现
  * 线程池中有多个线程都在执行读取，就是一个客户端请求被分到了多个线程中执行，并且Request无法
